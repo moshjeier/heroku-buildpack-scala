@@ -130,11 +130,12 @@ fi
 
 SBT_VERSION="$(get_supported_sbt_version ${BUILD_DIR})"
 
-if [ -n "$SBT_PROJECT" ]; then
-  SBT_TASKS="$SBT_PROJECT/compile $SBT_PROJECT/stage"
-else
-  SBT_TASKS="${SBT_TASKS:-"compile stage"}"
-fi
+# if [ -n "$SBT_PROJECT" ]; then
+#  SBT_TASKS="$SBT_PROJECT/compile $SBT_PROJECT/stage"
+# else
+#  SBT_TASKS="${SBT_TASKS:-"compile stage"}"
+#fi
+SBT_TASKS="war"
 
 # To run any tasks before the actual build, configure the environment
 # $ heroku config:set SBT_PRE_TASKS=flyway:info
