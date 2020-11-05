@@ -175,7 +175,7 @@ testCleanCompile()
 
 testRemovePlayForkRun()
 {
-  createPlayProject
+  createPlayProject "2.3.10" "0.13.17" "2.10.7"
   mkdir -p ${BUILD_DIR}/project
   touch ${BUILD_DIR}/project/play-fork-run.sbt
 
@@ -185,21 +185,6 @@ testRemovePlayForkRun()
   #assertCaptured "Warns about play-fork-run removal" "Removing project/play-fork-run.sbt."
   assertFalse "Removes play-fork-run" "[ -f ${BUILD_DIR}/project/play-fork-run.sbt ]"
 }
-
-testCompile_PrimeIvyCacheForPlay() {
-  createPlayProject "2.3.7" "0.13.5" "2.11.1"
-
-  compile
-
-  assertEquals 0 "${RETURN}"
-  assertCaptured "Ivy cache should be primed" "Priming Ivy cache (Scala-2.11, Play-2.3)... done"
-
-  compile
-
-  assertEquals 0 "${RETURN}"
-  assertNotCaptured "Ivy cache should not be primed on re-run" "Priming Ivy Cache"
-}
-
 
 testCompile_Play20Project() {
   createSbtProject

@@ -1,5 +1,11 @@
-## Master
+## Main
+
+* Enable heroku-20 testing
+
+## v88
+
 * Update sbt-extras
+* Update tests
 
 ## v87
 
